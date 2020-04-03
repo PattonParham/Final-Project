@@ -1,7 +1,7 @@
 import React from "react";
-import "./style.css";
+import "./generateButton.css";
 
-function generateBtn(props){
+function GenerateBtn(props){
     return(
         <button className = "generate-btn" {...props} role = "button">
             Generate Audio
@@ -9,4 +9,4 @@ function generateBtn(props){
     )
 }
 
-export default generateBtn; 
+export default GenerateBtn; 
