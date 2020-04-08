@@ -1,23 +1,42 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Main from "./pages/main";
+import ReactWidget from "./components/ReactWidget/ReactWidget";
 import GenerateBtn from "./components/generateButton/generateButton";
+import AddBtn from "./components/AddButton/AddButton";
 import SCWidget from "./components/SCWidget/SCWidget";
+import Header from "./components/header/header";
+import {Col, Row, Container } from "./components/Grid";
 
-function App(){
+const App = () => {
+
+    const generateAudio = (event) => {
+        event.preventDefault();
+        ReactWidget.play();
+
+    }
+
     return(
         <div>
      <div>
-    Text
+    <Header></Header>
     </div>
 
-    <button> 
-    Button
-    </button>
-    <SCWidget></SCWidget>
-    <SCWidget></SCWidget>
-    <SCWidget></SCWidget>
-    <GenerateBtn></GenerateBtn>
+ <Container fluid>
+     <Row>
+         <Col size="lg">
+           <ReactWidget></ReactWidget>
+         </Col>
+
+         
+     </Row>
+<Row>
+        <GenerateBtn onClick= {generateAudio}></GenerateBtn>
+    <AddBtn></AddBtn>
+</Row>
+
+ </Container>
+
         </div>
        
     

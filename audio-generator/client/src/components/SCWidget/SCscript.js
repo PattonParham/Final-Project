@@ -1,6 +1,7 @@
 // import React from "react";
 
 // function SCscript(){
+   
 // var iframeElement   = document.querySelector('iframe');
 // var iframeElementID = iframeElement.id;
 // var widget1         = SC.Widget(iframeElement);
