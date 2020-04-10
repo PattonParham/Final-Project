@@ -12,17 +12,16 @@ import { checkPropTypes } from "prop-types";
 
 
 const App = props => {
-const [playingBool, setPlaying] = useState(false);
+const [playingBool, setPlayingBool] = useState(false);
 
     const generateAudio = (event) => {
-        event.preventDefault();
-       setPlaying({ playingBool: true});
-       if (playingBool === false){
-           setPlaying({playingBool:true});
-       } else {
-           setPlaying({playingBool:false});
-       }
        
+       if (playingBool === false){
+           setPlayingBool(true);
+       } else if (playingBool === true){
+           setPlayingBool(false);
+       }
+       console.log(playingBool);
         // const Player = document.getElementById("testplayer");
         // Player.seekTo(24, "seconds");
     }
@@ -36,7 +35,7 @@ const [playingBool, setPlaying] = useState(false);
  <Container fluid>
      <Row>
          <Col size="lg">
-<ReactPlayer id ="testplayer" playing={playingBool === false ? false : true} url="https://soundcloud.com/waterchildmusic/boondocks"></ReactPlayer>
+<ReactPlayer id ="testplayer" playing={playingBool ? true : false} url="https://soundcloud.com/waterchildmusic/boondocks"></ReactPlayer>
          </Col>
 
          
