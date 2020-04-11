@@ -20,9 +20,7 @@ const [playingBoolII, setPlayingBoolII] = useState(false);
 const [playingBoolIII, setPlayingBoolIII] = useState(false);
 const [playingBoolIV, setPlayingBoolIV] = useState(false);
 const [seek, setSeek] = useState(0);
-//  let bpm = document.getElementById("BPM").value;
-//  let firstAudio = document.getElementById("fullNote");
-//  firstAudio = bpm/60;
+
 
     const generateAudio = (event) => {
        function PB(){
@@ -105,10 +103,10 @@ const [seek, setSeek] = useState(0);
  <Container fluid>
      <Row>
          <Col size="lg">
-<ReactPlayer id ="playerone" className="player" height ="100px;" playing={playingBool ? true : false} url="https://soundcloud.com/waterchildmusic/boondocks"></ReactPlayer>
-<ReactPlayer id ="playertwo" className="player" height ="100px;" playing={playingBoolII ? true : false} url="https://soundcloud.com/waterchildmusic/it-can-happen"></ReactPlayer>
-<ReactPlayer id ="playerthree" className="player" height ="100px;" playing={playingBoolIII ? true : false} url="https://soundcloud.com/waterchildmusic/phlox-1"></ReactPlayer>
-<ReactPlayer id ="playerfour" className="player" height ="100px;" playing={playingBoolIV ? true : false} url="https://soundcloud.com/therust/waterchild-smokin-exclusive-premiere"></ReactPlayer>
+<ReactPlayer id ="playerone" className="player" height ="100px" playing={playingBool ? true : false} url="https://soundcloud.com/waterchildmusic/boondocks"></ReactPlayer>
+<ReactPlayer id ="playertwo" className="player" height ="100px" playing={playingBoolII ? true : false} url="https://soundcloud.com/waterchildmusic/it-can-happen"></ReactPlayer>
+<ReactPlayer id ="playerthree" className="player" height ="100px" playing={playingBoolIII ? true : false} url="https://soundcloud.com/waterchildmusic/phlox-1"></ReactPlayer>
+<ReactPlayer id ="playerfour" className="player" height ="100px" playing={playingBoolIV ? true : false} url="https://soundcloud.com/therust/waterchild-smokin-exclusive-premiere"></ReactPlayer>
          </Col>
 
          

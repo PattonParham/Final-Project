@@ -3,11 +3,16 @@ import "./BPM.css";
 import {Col, Row, Container} from "../Grid/index";
 
 function BPMInput(){
-
+   
     function Calculate(){
         let inputVal = document.getElementById("BPM").value;
         console.log(inputVal);
-
+        let full = document.getElementById("fullNote");
+        full.value = inputVal/60;
+        console.log(full.value);
+        full.text = full.value;
+        console.log(full.text);  
+         
     }
 
 return (
@@ -62,9 +67,10 @@ return (
             </div>
             </div>
             </Col>
-            <Col id = "fullNote" size="lg">
+            <Col  size="lg">
             <div>
                 FullNote
+                <p id = "fullNote"></p>
             <div>
             </div>
             </div>
