@@ -24,9 +24,7 @@ const [seek, setSeek] = useState(0);
 
     const generateAudio = (event) => {
        function PB(){
-        if (seek === 0){
-            setSeek(23);
-        }
+
        if (playingBool === false){
 
            setPlayingBool(true);
@@ -107,6 +105,12 @@ const [seek, setSeek] = useState(0);
 <ReactPlayer id ="playertwo" className="player" height ="100px" playing={playingBoolII ? true : false} url="https://soundcloud.com/waterchildmusic/it-can-happen"></ReactPlayer>
 <ReactPlayer id ="playerthree" className="player" height ="100px" playing={playingBoolIII ? true : false} url="https://soundcloud.com/waterchildmusic/phlox-1"></ReactPlayer>
 <ReactPlayer id ="playerfour" className="player" height ="100px" playing={playingBoolIV ? true : false} url="https://soundcloud.com/therust/waterchild-smokin-exclusive-premiere"></ReactPlayer>
+         </Col>
+         <Col size ="lg">
+             <input id = "inOne" className="Input"></input>
+             <input id = "inOne" className="Input"></input>
+             <input id = "inOne" className="Input"></input>
+             <input id = "inOne" className="Input"></input>
          </Col>
 
          
