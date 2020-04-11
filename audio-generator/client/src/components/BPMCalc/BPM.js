@@ -53,7 +53,7 @@ return (
      <Row>
      <Col size="lg">
          <div className="BPMtext">BPM:</div>
-         <button id = "calcButton" onClick={Calculate}> </button>
+         <button id = "calcButton" onClick={Calculate}>Calc </button>
          </Col>
          <Col size="lg">
          <input id="BPM" className="BPMInput"></input>

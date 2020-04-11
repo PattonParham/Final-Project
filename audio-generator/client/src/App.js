@@ -20,9 +20,24 @@ const [playingBoolII, setPlayingBoolII] = useState(false);
 const [playingBoolIII, setPlayingBoolIII] = useState(false);
 const [playingBoolIV, setPlayingBoolIV] = useState(false);
 const [seek, setSeek] = useState(0);
+// const [inputOne, setInputOne] = useState("");
+// const [inputTwo, setInputTwo] = useState("");
+// const [inputThree, setInputThree] = useState("");
+// const [inputFour, setInputFour] = useState("");
+const [formObject, setFormObject] = useState({
+    inputOne: "",
+    inputTwo: "",
+    inputThree: "",
+    inputFour: ""
+})
+function handleInputChange(event) {
+    const { name, value } = event.target;
+    setFormObject({...formObject, [name]: value})
+  };
 
 
     const generateAudio = (event) => {
+        //function PBs to play the audio files
        function PB(){
 
        if (playingBool === false){
@@ -66,11 +81,25 @@ const [seek, setSeek] = useState(0);
              setPlayingBoolIV(true);
          }
      }
+
+    
     PB();
-    const wait = 10000;
-    const waitII = 4000;
-    const waitIII = 6000;
-    const waitIV = 6000;
+ 
+
+
+
+
+    let wait = parseInt(formObject.inputOne);
+    console.log(wait);
+    let waitII = parseInt(formObject.inputTwo);
+    let waitIII = parseInt(formObject.inputThree);
+    let waitIV = parseInt(formObject.inputFour);
+
+    // const wait = 10000;
+    // const waitII = 4000;
+    // const waitIII = 6000;
+    // const waitIV = 4000;
+
     setTimeout(PBII, wait);
     setTimeout(PBIII,(wait + waitII));
     setTimeout(PBIV, (wait+waitII+waitIII));
@@ -107,10 +136,14 @@ const [seek, setSeek] = useState(0);
 <ReactPlayer id ="playerfour" className="player" height ="100px" playing={playingBoolIV ? true : false} url="https://soundcloud.com/therust/waterchild-smokin-exclusive-premiere"></ReactPlayer>
          </Col>
          <Col size ="lg">
-             <input id = "inOne" className="Input"></input>
-             <input id = "inOne" className="Input"></input>
-             <input id = "inOne" className="Input"></input>
-             <input id = "inOne" className="Input"></input>
+             <input id = "inOne" onChange={handleInputChange} name= "inputOne" value={formObject.inputOne} className="Input"></input>
+             
+             <input id = "inTwo" onChange={handleInputChange} name= "inputTwo" value={formObject.inputTwo} className="Input"></input>
+             
+             <input id = "inThree" onChange={handleInputChange} name= "inputThree" value={formObject.inputThree} className="Input"></input>
+             
+             <input id = "inFour" onChange={handleInputChange} name = "inputFour" value={formObject.inputFour} className="Input"></input>
+             
          </Col>
 
          
