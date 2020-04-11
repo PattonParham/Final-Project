@@ -20,7 +20,9 @@ const [playingBoolII, setPlayingBoolII] = useState(false);
 const [playingBoolIII, setPlayingBoolIII] = useState(false);
 const [playingBoolIV, setPlayingBoolIV] = useState(false);
 const [seek, setSeek] = useState(0);
-
+//  let bpm = document.getElementById("BPM").value;
+//  let firstAudio = document.getElementById("fullNote");
+//  firstAudio = bpm/60;
 
     const generateAudio = (event) => {
        function PB(){
