@@ -16,10 +16,36 @@ function BPMInput(){
         let inputVal = document.getElementById("BPM").value;
         console.log(inputVal);
         let fullNote = document.getElementById("fullNote");
-        fullNote.value = inputVal/60;
+        let halfNote = document.getElementById("halfNote");
+        let quartNote = document.getElementById("quartNote");
+        let eighthNote = document.getElementById("eighthNote");
+        let sixteenNote = document.getElementById("sixteenthNote");
+        let thirtytwoNote = document.getElementById("thirtysecondNote");
+        let sixtyfourNote = document.getElementById("sixtyfourthNote");
+
+        fullNote.value = 60/inputVal;
+        halfNote.value = 30/inputVal;
+        quartNote.value = 15/inputVal;
+        eighthNote.value = 7.5/inputVal;
+        sixteenNote.value = 3.75/inputVal;
+        thirtytwoNote.value = 1.875/inputVal;
+        sixtyfourNote.value = .9375/inputVal;
         console.log(fullNote.value);
-        let fullNoteVal = fullNote.value
+        let fullNoteVal = fullNote.value;
+        let halfNoteVal = halfNote.value;
+        let quartNoteVal = quartNote.value;
+        let eighthNoteVal = eighthNote.value;
+        let sixteenNoteVal = sixteenNote.value;
+        let thirtytwoNoteVal = thirtytwoNote.value;
+        let sixtyfourNoteVal = sixtyfourNote.value;
+
         setFull(fullNoteVal);
+        setHalf(halfNoteVal);
+        setQuart(quartNoteVal);
+        setEighth(eighthNoteVal);
+        setSixteen(sixteenNoteVal);
+        setThirtyTwo(thirtytwoNoteVal);
+        setSixtyFour(sixtyfourNoteVal);
         }
 
 return (
@@ -32,46 +58,40 @@ return (
          <Col size="lg">
          <input id="BPM" className="BPMInput"></input>
         </Col>
-        <Col id ="sixtyfourthfNote"size="lg">
+        <Col size="lg">
             <div>
                 1/64Note
-            <div>
-            </div>
+                <p id ="sixtyfourthNote">{sixtyfour}</p>
             </div>
         </Col>
-        <Col id ="thirtysecondNote" size="lg">
+        <Col size="lg">
         <div>
                 1/32Note
-            <div>
-            </div>
+                <p id ="thirtysecondNote">{thirtytwo}</p>
             </div>
         </Col>
-        <Col id ="sixteenthNote" size="lg">
+        <Col size="lg">
         <div>
                 1/16Note
-            <div>
-            </div>
+                <p id ="sixteenthNote">{sixteen}</p>
             </div>
         </Col>
-        <Col id = "eigthNote" size="lg">
+        <Col size="lg">
         <div>
                 1/8Note
-            <div>
-            </div>
+                <p id = "eighthNote">{eighth}</p>
             </div>
         </Col>
-        <Col id = "quarterNote" size="lg">
+        <Col size="lg">
         <div>
                 1/4Note
-            <div>
-            </div>
+                <p id = "quartNote">{quart}</p>
             </div>
             </Col>
         <Col id = "halfNote" size="lg">
             <div>
                 1/2Note
-            <div>
-            </div>
+            <p id = "halfNote">{half}</p>
             </div>
             </Col>
             <Col  size="lg">
