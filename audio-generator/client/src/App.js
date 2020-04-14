@@ -14,16 +14,16 @@ import "./App.css";
 
 
 const App = props => {
+    
 
 const [playingBool, setPlayingBool] = useState(false);
 const [playingBoolII, setPlayingBoolII] = useState(false);
 const [playingBoolIII, setPlayingBoolIII] = useState(false);
 const [playingBoolIV, setPlayingBoolIV] = useState(false);
-const [seek, setSeek] = useState(0);
-// const [inputOne, setInputOne] = useState("");
-// const [inputTwo, setInputTwo] = useState("");
-// const [inputThree, setInputThree] = useState("");
-// const [inputFour, setInputFour] = useState("");
+let [fade, setFade] = useState(null);
+
+
+
 const [formObject, setFormObject] = useState({
     inputOne: "",
     inputTwo: "",
@@ -37,9 +37,9 @@ function handleInputChange(event) {
 
 
     const generateAudio = (event) => {
-        //function PBs to play the audio files
+        //function PBs (Play Boolean) to play the audio files
        function PB(){
-
+       
        if (playingBool === false){
 
            setPlayingBool(true);
@@ -81,13 +81,41 @@ function handleInputChange(event) {
              setPlayingBoolIV(true);
          }
      }
+     function handleFade(){
+        if (fade = null){
+          
+            setTimeout(setFade(.9), 1)
+            setTimeout(setFade(.8), 2)
+            setTimeout(setFade(.7), 3)
+            setTimeout(setFade(.6), 4)
+            setTimeout(setFade(.5), 5)
+            setTimeout(setFade(.4), 6)
+            setTimeout(setFade(.3), 7)
+            setTimeout(setFade(.2), 8)
+            setTimeout(setFade(.1), 9)
+            setTimeout(setFade(0), 10)
+        } else if (fade = 0 ){
+            setTimeout(setFade(.1), 1)
+            setTimeout(setFade(.2), 2)
+            setTimeout(setFade(.3), 3)
+            setTimeout(setFade(.4), 4)
+            setTimeout(setFade(.5), 5)
+            setTimeout(setFade(.6), 6)
+            setTimeout(setFade(.7), 7)
+            setTimeout(setFade(.8), 8)
+            setTimeout(setFade(.9), 9)
+            setTimeout(setFade(null), 10)
+        }
+
+        // if (fade = null){
+        //     setFade(.3)
+        // } else if (fade = .3) {
+        //     setTimeout(setFade(null),)
+        // }
+     }
 
     
     PB();
- 
-
-
-
 
     let wait = parseInt(formObject.inputOne);
     console.log(wait);
@@ -99,13 +127,17 @@ function handleInputChange(event) {
     // const waitII = 4000;
     // const waitIII = 6000;
     // const waitIV = 4000;
-
+    setTimeout(handleFade, (wait - 10));
     setTimeout(PBII, wait);
+    setTimeout(handleFade, ((wait + waitII) - 10));
     setTimeout(PBIII,(wait + waitII));
+    setTimeout(handleFade, ((wait+waitII+waitIII) - 10));
     setTimeout(PBIV, (wait+waitII+waitIII));
+    setTimeout(handleFade, ((wait+waitII+waitIII+waitIV) - 10));
     setTimeout(StopAll, (wait+waitII+waitIII+waitIV));  
           
     }
+
 
     return(
         <div>
@@ -131,19 +163,19 @@ function handleInputChange(event) {
      <Row>
          <Col size="lg">
              <Row>
-                <ReactPlayer id ="playerone" className="player" height ="100px" playing={playingBool ? true : false} url="https://soundcloud.com/waterchildmusic/boondocks">
+                <ReactPlayer id ="playerone" className="player" height ="100px" volume = {fade} playing={playingBool ? true : false} url="https://soundcloud.com/waterchildmusic/boondocks">
                 </ReactPlayer>
             </Row>
             <Row>
-                <ReactPlayer id ="playertwo" className="player" height ="100px" playing={playingBoolII ? true : false} url="https://soundcloud.com/waterchildmusic/it-can-happen">
+                <ReactPlayer id ="playertwo" className="player" height ="100px" volume = {fade} playing={playingBoolII ? true : false} url="https://soundcloud.com/waterchildmusic/it-can-happen">
                 </ReactPlayer>
             </Row>
             <Row>
-                <ReactPlayer id ="playerthree" className="player" height ="100px" playing={playingBoolIII ? true : false} url="https://soundcloud.com/waterchildmusic/phlox-1">
+                <ReactPlayer id ="playerthree" className="player" height ="100px" volume = {fade} playing={playingBoolIII ? true : false} url="https://soundcloud.com/waterchildmusic/phlox-1">
                 </ReactPlayer>
             </Row>
             <Row>
-                <ReactPlayer id ="playerfour" className="player" height ="100px" playing={playingBoolIV ? true : false} url="https://soundcloud.com/therust/waterchild-smokin-exclusive-premiere">   
+                <ReactPlayer id ="playerfour" className="player" height ="100px" volume = {fade} playing={playingBoolIV ? true : false} url="https://soundcloud.com/therust/waterchild-smokin-exclusive-premiere">   
                 </ReactPlayer>
             </Row>
          </Col>
