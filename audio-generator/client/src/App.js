@@ -130,20 +130,36 @@ function handleInputChange(event) {
  <Container fluid>
      <Row>
          <Col size="lg">
-<ReactPlayer id ="playerone" className="player" height ="100px" playing={playingBool ? true : false} url="https://soundcloud.com/waterchildmusic/boondocks"></ReactPlayer>
-<ReactPlayer id ="playertwo" className="player" height ="100px" playing={playingBoolII ? true : false} url="https://soundcloud.com/waterchildmusic/it-can-happen"></ReactPlayer>
-<ReactPlayer id ="playerthree" className="player" height ="100px" playing={playingBoolIII ? true : false} url="https://soundcloud.com/waterchildmusic/phlox-1"></ReactPlayer>
-<ReactPlayer id ="playerfour" className="player" height ="100px" playing={playingBoolIV ? true : false} url="https://soundcloud.com/therust/waterchild-smokin-exclusive-premiere"></ReactPlayer>
+             <Row>
+                <ReactPlayer id ="playerone" className="player" height ="100px" playing={playingBool ? true : false} url="https://soundcloud.com/waterchildmusic/boondocks">
+                </ReactPlayer>
+            </Row>
+            <Row>
+                <ReactPlayer id ="playertwo" className="player" height ="100px" playing={playingBoolII ? true : false} url="https://soundcloud.com/waterchildmusic/it-can-happen">
+                </ReactPlayer>
+            </Row>
+            <Row>
+                <ReactPlayer id ="playerthree" className="player" height ="100px" playing={playingBoolIII ? true : false} url="https://soundcloud.com/waterchildmusic/phlox-1">
+                </ReactPlayer>
+            </Row>
+            <Row>
+                <ReactPlayer id ="playerfour" className="player" height ="100px" playing={playingBoolIV ? true : false} url="https://soundcloud.com/therust/waterchild-smokin-exclusive-premiere">   
+                </ReactPlayer>
+            </Row>
          </Col>
-         <Col size ="lg">
+         <Col size ="sm">
+             <Row>
              <input id = "inOne" onChange={handleInputChange} name= "inputOne" value={formObject.inputOne} className="Input"></input>
-             
+             </Row>
+             <Row>
              <input id = "inTwo" onChange={handleInputChange} name= "inputTwo" value={formObject.inputTwo} className="Input"></input>
-             
+             </Row>
+             <Row>
              <input id = "inThree" onChange={handleInputChange} name= "inputThree" value={formObject.inputThree} className="Input"></input>
-             
+             </Row>
+             <Row>
              <input id = "inFour" onChange={handleInputChange} name = "inputFour" value={formObject.inputFour} className="Input"></input>
-             
+             </Row>
          </Col>
 
          
