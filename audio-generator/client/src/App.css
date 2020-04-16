@@ -5,3 +5,26 @@
 .inputCol{
     margin-left: 100px;
 }
+#bodyDiv{
+    background-color: aqua;
+    width: 1700px;;
+    height: 1000px;;
+}
+.player{
+    background-color: darkblue;
+}
+.titleurlinput{
+    height: 100px;
+    background-color: blue;
+    width: 640px;  
+}
+
+.titleinput{
+margin-top: 30px;
+margin-left: 20px;
+}
+
+.urlinput{
+margin-top: 30px;
+margin-left: -80px;
+}

@@ -1,5 +1,7 @@
 .add-btn{
-    width: 200px;
-    height: 100px;
+    width: 100px;
+    height: 40px;
     background-color:red;
+    margin-left: 500px;
+    margin-top: -30px;
 }

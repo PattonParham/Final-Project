@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const postSchema = new Schema({
+const soundSchema = new Schema({
     title: {type: String, required: true },
     url: {type: String, required: true}
 });
 
-const Post = mongoose.model("Post", postSchema);
+const Sound = mongoose.model("Sound", soundSchema);
 
-module.exports = Post;
+module.exports = Sound;

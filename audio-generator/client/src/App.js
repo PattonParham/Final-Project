@@ -28,12 +28,24 @@ const [formObject, setFormObject] = useState({
     inputOne: "",
     inputTwo: "",
     inputThree: "",
-    inputFour: ""
+    inputFour: "",
+    titleOne: "",
+    titleTwo: "",
+    titleThree: "",
+    titleFour: "",
+    urlOne: "",
+    urlTwo: "",
+    urlThree: "",
+    urlFour: ""
+
 })
 function handleInputChange(event) {
     const { name, value } = event.target;
     setFormObject({...formObject, [name]: value})
   };
+  const addAudio = () => {
+
+  }
 
 
     const generateAudio = (event) => {
@@ -140,7 +152,7 @@ function handleInputChange(event) {
 
 
     return(
-        <div>
+        <div id = "bodyDiv">
      <div>
          <Row>
          <Col size="lg">
@@ -163,20 +175,73 @@ function handleInputChange(event) {
      <Row>
          <Col size="lg">
              <Row>
-                <ReactPlayer id ="playerone" className="player" height ="100px" volume = {fade} playing={playingBool ? true : false} url="https://soundcloud.com/waterchildmusic/boondocks">
+                <ReactPlayer id ="playerone" className="player" height ="100px" volume = {fade} playing={playingBool ? true : false} title={formObject.titleOne} url={formObject.urlOne}>
+                </ReactPlayer>
+
+            </Row>
+            <Row>
+            <div className="titleurlinput">
+                <Row>
+                <Col size="lg">
+                <input onChange={handleInputChange} className="titleinput" name="titleOne" value ={formObject.titleOne}></input>
+                </Col>
+                <Col size="lg">
+                <input onChange={handleInputChange} className="urlinput" name="urlOne" value={formObject.urlOne}></input>
+                </Col>
+              <AddBtn id ="AddOne"></AddBtn>
+              </Row>
+            </div>
+            </Row>
+            <Row>
+                <ReactPlayer id ="playertwo" className="player" height ="100px" volume = {fade} playing={playingBoolII ? true : false} title={formObject.titleTwo} url={formObject.urlTwo}>
                 </ReactPlayer>
             </Row>
             <Row>
-                <ReactPlayer id ="playertwo" className="player" height ="100px" volume = {fade} playing={playingBoolII ? true : false} url="https://soundcloud.com/waterchildmusic/it-can-happen">
+            <div className="titleurlinput">
+                <Row>
+                <Col size="lg">
+                <input onChange={handleInputChange} className="titleinput" name="titleTwo" value ={formObject.titleTwo}></input>
+                </Col>
+                <Col size="lg">
+                <input onChange={handleInputChange} className="urlinput" name="urlTwo" value ={formObject.urlTwo}></input>
+                </Col>
+              <AddBtn onClick={addAudio}></AddBtn>
+              </Row>
+            </div>
+            </Row>
+            <Row>
+                <ReactPlayer id ="playerthree" className="player" height ="100px" volume = {fade} playing={playingBoolIII ? true : false} title={formObject.titleThree} url={formObject.urlThree}>
                 </ReactPlayer>
             </Row>
             <Row>
-                <ReactPlayer id ="playerthree" className="player" height ="100px" volume = {fade} playing={playingBoolIII ? true : false} url="https://soundcloud.com/waterchildmusic/phlox-1">
+            <div className="titleurlinput">
+                <Row>
+                <Col size="lg">
+                <input onChange={handleInputChange} className="titleinput" name="titleThree" value ={formObject.titleThree}></input>
+                </Col>
+                <Col size="lg">
+                <input onChange={handleInputChange} className="urlinput" name="urlThree" value ={formObject.urlThree}></input>
+                </Col>
+              <AddBtn></AddBtn>
+              </Row>
+            </div>
+            </Row>
+            <Row>
+                <ReactPlayer id ="playerfour" className="player" height ="100px" volume = {fade} playing={playingBoolIV ? true : false}title={formObject.titleFour} url={formObject.urlFour}>   
                 </ReactPlayer>
             </Row>
             <Row>
-                <ReactPlayer id ="playerfour" className="player" height ="100px" volume = {fade} playing={playingBoolIV ? true : false} url="https://soundcloud.com/therust/waterchild-smokin-exclusive-premiere">   
-                </ReactPlayer>
+            <div className="titleurlinput">
+                <Row>
+                <Col size="lg">
+                <input onChange={handleInputChange} className="titleinput" name="titleFour" value ={formObject.titleFour}></input>
+                </Col>
+                <Col size="lg">
+                <input onChange={handleInputChange} className="urlinput" name="urlFour" value={formObject.urlFour}></input>
+                </Col>
+              <AddBtn></AddBtn>
+              </Row>
+            </div>
             </Row>
          </Col>
          <Col size ="sm">
@@ -198,7 +263,6 @@ function handleInputChange(event) {
      </Row>
 <Row>
         <GenerateBtn onClick= {generateAudio}></GenerateBtn>
-    <AddBtn></AddBtn>
 </Row>
 
  </Container>
