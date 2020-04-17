@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useRef} from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Main from "./pages/main";
 // import ReactWidget from "./components/ReactWidget/ReactWidget";
@@ -21,7 +21,7 @@ const [playingBoolII, setPlayingBoolII] = useState(false);
 const [playingBoolIII, setPlayingBoolIII] = useState(false);
 const [playingBoolIV, setPlayingBoolIV] = useState(false);
 let [fade, setFade] = useState(null);
-
+const player = useRef(null);
 
 
 const [formObject, setFormObject] = useState({
@@ -92,7 +92,7 @@ function handleInputChange(event) {
             three = true;
         } else if (three === true){
             setPlayingBoolIII(false);
-            three = true;
+            three = false;
         }
         
      }
@@ -150,9 +150,13 @@ function handleInputChange(event) {
      let waitII = parseInt(formObject.inputTwo);
      let waitIII = parseInt(formObject.inputThree);
      let waitIV = parseInt(formObject.inputFour);
+     const Seek = ()=>{
+            let p = 10
+         player.current.seekTo(p)
+     }
 
      
-
+        Seek();
         PB();
         setTimeout(handleFade, (wait - 10));
         setTimeout(PBII, wait);
@@ -198,7 +202,7 @@ function handleInputChange(event) {
      <Row>
          <Col size="lg">
              <Row>
-                <ReactPlayer id ="playerone" className="player" height ="100px" volume = {fade} playing={playingBool ? true : false} title={formObject.titleOne} url={formObject.urlOne}>
+                <ReactPlayer ref={player} id ="playerone" className="player" height ="100px"  volume = {fade} playing={playingBool ? true : false} title={formObject.titleOne} url={formObject.urlOne}>
                 </ReactPlayer>
 
             </Row>
