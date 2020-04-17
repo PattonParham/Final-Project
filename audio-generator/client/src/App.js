@@ -153,10 +153,18 @@ function handleInputChange(event) {
      let waitII = parseInt(formObject.inputTwo);
      let waitIII = parseInt(formObject.inputThree);
      let waitIV = parseInt(formObject.inputFour);
-     let seekOne = 10;
+     let soundLength = 218 - wait;
+     let seekOne = getRndInteger(0, 218);
+     console.log(seekOne);
      let seekTwo = 20;
      let seekThree = 30;
      let seekFour = 40;
+     function getRndInteger(min, max){
+         return Math.floor(Math.random() * (max-min) + min)
+     }
+
+        
+
      const SeekOne = ()=>{
          playerOne.current.seekTo(seekOne);
      }
