@@ -153,31 +153,37 @@ function handleInputChange(event) {
      let waitII = parseInt(formObject.inputTwo);
      let waitIII = parseInt(formObject.inputThree);
      let waitIV = parseInt(formObject.inputFour);
-     let soundLength = (218 - (wait/1000));
-     let soundLengthTwo = (218 - (waitII/1000));
-     let soundLengthThree = (218 - (waitIII/1000));
-     let soundLengthFour = (218 - (waitIV/1000));
+     let soundDuration = playerOne.current.getDuration();
+     let soundDurationTwo = playerTwo.current.getDuration();
+     let soundDurationThree = playerThree.current.getDuration();
+     let soundDurationFour = playerFour.current.getDuration();
+     console.log(soundDuration);
+     let soundLength = (soundDuration - (wait/1000));
+     let soundLengthTwo = (soundDurationTwo - (waitII/1000));
+     let soundLengthThree = (soundDurationThree - (waitIII/1000));
+     let soundLengthFour = (soundDurationFour - (waitIV/1000));
      console.log(soundLength);
      let seekOne = getRndInteger(0, soundLength);
      console.log(seekOne);
      let seekTwo = getRndInteger(0, soundLengthTwo);
      let seekThree = getRndInteger(0, soundLengthThree);
      let seekFour = getRndInteger(0, soundLengthFour);
-     
+
      function getRndInteger(min, max){
          return Math.floor(Math.random() * (max-min) + min)
      }
+     
 
-     const SeekOne = ()=>{
+     let SeekOne = ()=>{
          playerOne.current.seekTo(seekOne);
      }
-     const SeekTwo = ()=>{
+     let SeekTwo = ()=>{
         playerTwo.current.seekTo(seekTwo);
      }
-     const SeekThree = ()=>{
+     let SeekThree = ()=>{
         playerThree.current.seekTo(seekThree);
      }
-     const SeekFour = ()=>{
+     let SeekFour = ()=>{
         playerFour.current.seekTo(seekFour);
      }
 
