@@ -21,7 +21,10 @@ const [playingBoolII, setPlayingBoolII] = useState(false);
 const [playingBoolIII, setPlayingBoolIII] = useState(false);
 const [playingBoolIV, setPlayingBoolIV] = useState(false);
 let [fade, setFade] = useState(null);
-const player = useRef(null);
+const playerOne = useRef(null);
+const playerTwo = useRef(null);
+const playerThree = useRef(null);
+const playerFour = useRef(null);
 
 
 const [formObject, setFormObject] = useState({
@@ -150,19 +153,34 @@ function handleInputChange(event) {
      let waitII = parseInt(formObject.inputTwo);
      let waitIII = parseInt(formObject.inputThree);
      let waitIV = parseInt(formObject.inputFour);
-     const Seek = ()=>{
-            let p = 10
-         player.current.seekTo(p)
+     let seekOne = 10;
+     let seekTwo = 20;
+     let seekThree = 30;
+     let seekFour = 40;
+     const SeekOne = ()=>{
+         playerOne.current.seekTo(seekOne);
+     }
+     const SeekTwo = ()=>{
+        playerTwo.current.seekTo(seekTwo);
+     }
+     const SeekThree = ()=>{
+        playerThree.current.seekTo(seekThree);
+     }
+     const SeekFour = ()=>{
+        playerFour.current.seekTo(seekFour);
      }
 
      
-        Seek();
+        SeekOne();
         PB();
         setTimeout(handleFade, (wait - 10));
+        setTimeout(SeekTwo, wait);
         setTimeout(PBII, wait);
         setTimeout(handleFade, ((wait + waitII) - 10));
+        setTimeout(SeekThree,(wait + waitII));
         setTimeout(PBIII,(wait + waitII));
         setTimeout(handleFade, ((wait+waitII+waitIII) - 10));
+        setTimeout(SeekFour, (wait+waitII+waitIII));
         setTimeout(PBIV, (wait+waitII+waitIII));
         setTimeout(handleFade, ((wait+waitII+waitIII+waitIV) - 10));
         setTimeout(PBIV, (wait+waitII+waitIII+waitIV)); 
@@ -202,7 +220,7 @@ function handleInputChange(event) {
      <Row>
          <Col size="lg">
              <Row>
-                <ReactPlayer ref={player} id ="playerone" className="player" height ="100px"  volume = {fade} playing={playingBool ? true : false} title={formObject.titleOne} url={formObject.urlOne}>
+                <ReactPlayer ref={playerOne} id ="playerone" className="player" height ="100px"  volume = {fade} playing={playingBool ? true : false} title={formObject.titleOne} url={formObject.urlOne}>
                 </ReactPlayer>
 
             </Row>
@@ -220,7 +238,7 @@ function handleInputChange(event) {
             </div>
             </Row>
             <Row>
-                <ReactPlayer id ="playertwo" className="player" height ="100px" volume = {fade} playing={playingBoolII ? true : false} title={formObject.titleTwo} url={formObject.urlTwo}>
+                <ReactPlayer ref={playerTwo} id ="playertwo" className="player" height ="100px" volume = {fade} playing={playingBoolII ? true : false} title={formObject.titleTwo} url={formObject.urlTwo}>
                 </ReactPlayer>
             </Row>
             <Row>
@@ -237,7 +255,7 @@ function handleInputChange(event) {
             </div>
             </Row>
             <Row>
-                <ReactPlayer id ="playerthree" className="player" height ="100px" volume = {fade} playing={playingBoolIII ? true : false} title={formObject.titleThree} url={formObject.urlThree}>
+                <ReactPlayer ref={playerThree} id ="playerthree" className="player" height ="100px" volume = {fade} playing={playingBoolIII ? true : false} title={formObject.titleThree} url={formObject.urlThree}>
                 </ReactPlayer>
             </Row>
             <Row>
@@ -254,7 +272,7 @@ function handleInputChange(event) {
             </div>
             </Row>
             <Row>
-                <ReactPlayer id ="playerfour" className="player" height ="100px" volume = {fade} playing={playingBoolIV ? true : false}title={formObject.titleFour} url={formObject.urlFour}>   
+                <ReactPlayer ref={playerFour} id ="playerfour" className="player" height ="100px" volume = {fade} playing={playingBoolIV ? true : false}title={formObject.titleFour} url={formObject.urlFour}>   
                 </ReactPlayer>
             </Row>
             <Row>
