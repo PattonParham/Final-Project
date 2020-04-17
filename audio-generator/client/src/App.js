@@ -62,6 +62,7 @@ function handleInputChange(event) {
 
 
     const generateAudio = (event) => {
+        
         let one = false;
         let two = false;
         let three = false;
@@ -69,7 +70,6 @@ function handleInputChange(event) {
         let count = 0;
         //function PBs (Play Boolean) to play the audio files
        function PB(){
-       
        if (one === false){
            setPlayingBool(true);
             one = true;
@@ -187,8 +187,7 @@ function handleInputChange(event) {
         playerFour.current.seekTo(seekFour);
      }
 
-     
-        SeekOne();
+    function generateLoop(){
         PB();
         setTimeout(handleFade, (wait - 10));
         setTimeout(SeekTwo, wait);
@@ -200,13 +199,23 @@ function handleInputChange(event) {
         setTimeout(SeekFour, (wait+waitII+waitIII));
         setTimeout(PBIV, (wait+waitII+waitIII));
         setTimeout(handleFade, ((wait+waitII+waitIII+waitIV) - 10));
-        setTimeout(PBIV, (wait+waitII+waitIII+waitIV)); 
+        setTimeout(PBIV, (wait+waitII+waitIII+waitIV));
+         
+    }
+SeekOne();
+PB();
+generateLoop();
+
+
+
+ 
         // clearTimeout()
 
       
         
-    
-    // setInterval(generateLoop(), (wait+waitII+waitIII+waitIV));
+// setInterval(SeekOne(),(wait+waitII+waitIII+waitIV));
+// setInterval(PB(),(wait+waitII+waitIII+waitIV));
+setInterval(generateLoop(), (wait+waitII+waitIII+waitIV));
 
 
           
