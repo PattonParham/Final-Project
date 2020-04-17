@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Main from "./pages/main";
 // import ReactWidget from "./components/ReactWidget/ReactWidget";
@@ -36,63 +36,87 @@ const [formObject, setFormObject] = useState({
     urlOne: "",
     urlTwo: "",
     urlThree: "",
-    urlFour: ""
+    urlFour: "",
+    urlOneDisplay: ""
 
 })
+
+useEffect(() => {
+
+  },[playingBool, playingBoolII, playingBoolIII, playingBoolIV]);
+
 function handleInputChange(event) {
     const { name, value } = event.target;
     setFormObject({...formObject, [name]: value})
   };
   const addAudio = () => {
-
+    // let urlOneDisplay = {display: "none"}
+    // let url = formObject.urlOne;
+    // let title = formObject.titleOne;
   }
 
 
+
+
     const generateAudio = (event) => {
+        let one = false;
+        let two = false;
+        let three = false;
+        let four = false;
+        let count = 0;
         //function PBs (Play Boolean) to play the audio files
        function PB(){
        
-       if (playingBool === false){
-
+       if (one === false){
            setPlayingBool(true);
-       } else if (playingBool === true){
+            one = true;
+       } else if (one === true){
            setPlayingBool(false);
+           one = false;
        }
        console.log(playingBool);
     }
     function PBII(){
-       if(playingBoolII === false){
+       if(two === false){
            setPlayingBoolII(true);
-       } else if (playingBoolII === true){
+           two = true;
+       } else if (two === true){
            setPlayingBoolII(false);
+           two = false;
        }
        
     }
     function PBIII(){
-        if(playingBoolIII === false){
+        if(three === false){
             setPlayingBoolIII(true);
-        } else if (playingBoolIII === true){
+            three = true;
+        } else if (three === true){
             setPlayingBoolIII(false);
+            three = true;
         }
         
      }
     function PBIV(){
-        if(playingBoolIV === false){
+        if(four === false){
             setPlayingBoolIV(true);
-        } else if (playingBoolIV === true){
+            four = true;
+            console.log(playingBoolIV);
+        } else if (four === true){
             setPlayingBoolIV(false);
+            four = false;
+            console.log(playingBoolIV);
         }
-    
+        
         
      }
-     function StopAll(){
+    //  function StopAll(){
 
-         if (playingBoolIV === true){
-            setPlayingBoolIV(false);
-         } else if (playingBoolIV === false){
-             setPlayingBoolIV(true);
-         }
-     }
+    //      if (playingBoolIV === true){
+    //         setPlayingBoolIV(false);
+    //      } else if (playingBoolIV === false){
+    //          setPlayingBoolIV(true);
+    //      }
+    //  }
      function handleFade(){
         if (fade = null){
           
@@ -119,34 +143,33 @@ function handleInputChange(event) {
             setTimeout(setFade(null), 10)
         }
 
-        // if (fade = null){
-        //     setFade(.3)
-        // } else if (fade = .3) {
-        //     setTimeout(setFade(null),)
-        // }
+
      }
+     let wait = parseInt(formObject.inputOne);
+     console.log(wait);
+     let waitII = parseInt(formObject.inputTwo);
+     let waitIII = parseInt(formObject.inputThree);
+     let waitIV = parseInt(formObject.inputFour);
 
+     
+
+        PB();
+        setTimeout(handleFade, (wait - 10));
+        setTimeout(PBII, wait);
+        setTimeout(handleFade, ((wait + waitII) - 10));
+        setTimeout(PBIII,(wait + waitII));
+        setTimeout(handleFade, ((wait+waitII+waitIII) - 10));
+        setTimeout(PBIV, (wait+waitII+waitIII));
+        setTimeout(handleFade, ((wait+waitII+waitIII+waitIV) - 10));
+        setTimeout(PBIV, (wait+waitII+waitIII+waitIV)); 
+        // clearTimeout()
+
+      
+        
     
-    PB();
+    // setInterval(generateLoop(), (wait+waitII+waitIII+waitIV));
 
-    let wait = parseInt(formObject.inputOne);
-    console.log(wait);
-    let waitII = parseInt(formObject.inputTwo);
-    let waitIII = parseInt(formObject.inputThree);
-    let waitIV = parseInt(formObject.inputFour);
 
-    // const wait = 10000;
-    // const waitII = 4000;
-    // const waitIII = 6000;
-    // const waitIV = 4000;
-    setTimeout(handleFade, (wait - 10));
-    setTimeout(PBII, wait);
-    setTimeout(handleFade, ((wait + waitII) - 10));
-    setTimeout(PBIII,(wait + waitII));
-    setTimeout(handleFade, ((wait+waitII+waitIII) - 10));
-    setTimeout(PBIV, (wait+waitII+waitIII));
-    setTimeout(handleFade, ((wait+waitII+waitIII+waitIV) - 10));
-    setTimeout(StopAll, (wait+waitII+waitIII+waitIV));  
           
     }
 
@@ -180,7 +203,7 @@ function handleInputChange(event) {
 
             </Row>
             <Row>
-            <div className="titleurlinput">
+            <div className="titleurlinput"  >
                 <Row>
                 <Col size="lg">
                 <input onChange={handleInputChange} className="titleinput" name="titleOne" value ={formObject.titleOne}></input>
@@ -188,7 +211,7 @@ function handleInputChange(event) {
                 <Col size="lg">
                 <input onChange={handleInputChange} className="urlinput" name="urlOne" value={formObject.urlOne}></input>
                 </Col>
-              <AddBtn id ="AddOne"></AddBtn>
+              <AddBtn id ="AddOne" onClick={addAudio}></AddBtn>
               </Row>
             </div>
             </Row>
