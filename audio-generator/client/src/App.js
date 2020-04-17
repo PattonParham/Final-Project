@@ -10,6 +10,7 @@ import {Col, Row, Container } from "./components/Grid";
 import ReactPlayer from "react-player";
 import BPMInput from "./components/BPMCalc/BPM";
 import "./App.css";
+import API from "./utils/API";
 // import { checkPropTypes } from "prop-types";
 
 
@@ -26,7 +27,6 @@ const playerTwo = useRef(null);
 const playerThree = useRef(null);
 const playerFour = useRef(null);
 
-
 const [formObject, setFormObject] = useState({
     inputOne: "",
     inputTwo: "",
@@ -40,9 +40,7 @@ const [formObject, setFormObject] = useState({
     urlTwo: "",
     urlThree: "",
     urlFour: "",
-    urlOneDisplay: ""
-
-})
+});
 
 useEffect(() => {
 
@@ -53,12 +51,16 @@ function handleInputChange(event) {
     setFormObject({...formObject, [name]: value})
   };
   const addAudio = () => {
-    // let urlOneDisplay = {display: "none"}
-    // let url = formObject.urlOne;
-    // let title = formObject.titleOne;
+API.saveSound(formObject.inputOne);
   }
 
-
+function handleStateReset(){
+    let one = true;
+    if (one === true){
+    setPlayingBool(false);
+    one = false;
+}
+}
 
 
     const generateAudio = (event) => {
@@ -200,7 +202,6 @@ function handleInputChange(event) {
         setTimeout(PBIV, (wait+waitII+waitIII));
         setTimeout(handleFade, ((wait+waitII+waitIII+waitIV) - 10));
         setTimeout(PBIV, (wait+waitII+waitIII+waitIV));
-         
     }
 SeekOne();
 PB();
@@ -216,6 +217,7 @@ generateLoop();
 // setInterval(SeekOne(),(wait+waitII+waitIII+waitIV));
 // setInterval(PB(),(wait+waitII+waitIII+waitIV));
 setInterval(generateLoop(), (wait+waitII+waitIII+waitIV));
+
 
 
           
@@ -334,6 +336,8 @@ setInterval(generateLoop(), (wait+waitII+waitIII+waitIV));
      </Row>
 <Row>
         <GenerateBtn onClick= {generateAudio}></GenerateBtn>
+    <GenerateBtn onClick={handleStateReset}></GenerateBtn>
+
 </Row>
 
  </Container>
