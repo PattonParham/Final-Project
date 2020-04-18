@@ -47,8 +47,8 @@ border-color: grey;
 .GenerateBtnLabel{
     width: 450px;
     height: 200px;
-    background-color: black;
-    color: white;
+    background-color:rgb(204, 204, 204);
+    color:rgb(109, 104, 104);
     border-style: inset;
     border-color: grey;
     border-width: 7px;;
@@ -57,4 +57,27 @@ border-color: grey;
 }
 .playerComponent{
     margin-left: 30px;
+}
+.infinitysymbol{
+    font-size: 200px;
+    margin-top: -75px;
+    margin-left: 125px;
+    text-decoration-color: lightgrey;
+    -webkit-text-stroke: 5px rgb(32, 32, 32);
+}
+.header{
+    margin-left: 20px;
+    color: lightgrey;
+}
+@media only screen and (max-width: 600px){
+    #bodyDiv{
+        height:3000px;
+
+    }
+
+    .urlinput{
+        margin-left:225px;
+        margin-top: -50px;
+    }
+    
 }

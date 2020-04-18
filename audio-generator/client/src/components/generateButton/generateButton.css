@@ -1,10 +1,11 @@
 .generate-btn{
     width: 450px;
     height: 200px;
-    background-color: black;
-    color: white;
+    background-color: red;
+    color: black;
     border-style: inset;
     border-color: grey;
     border-width: 7px;;
     margin-left:-31px;
+    font-size: 50px;
 }

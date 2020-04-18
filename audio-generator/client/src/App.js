@@ -3,10 +3,10 @@ import {ADD_SOUND} from "./utils/actions";
 import { useStoreContext } from "./utils/GlobalState";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Main from "./pages/main";
-// import ReactWidget from "./components/ReactWidget/ReactWidget";
+
 import GenerateBtn from "./components/generateButton/generateButton";
 import AddBtn from "./components/AddButton/AddButton";
-// import SCWidget from "./components/SCWidget/SCWidget";
+
 import Header from "./components/header/header";
 import {Col, Row, Container } from "./components/Grid";
 import ReactPlayer from "react-player";
@@ -263,7 +263,7 @@ setInterval(generateLoop(), (wait+waitII+waitIII+waitIV));
         <div id = "bodyDiv">
      <div>
          <Row>
-         <Col size="lg">
+         <Col size="lg" className ="header">
          <Header></Header>
          </Col>
 
@@ -379,7 +379,10 @@ setInterval(generateLoop(), (wait+waitII+waitIII+waitIV));
              </Row>
              <Row>
             <Col size="lg">
-        <div className="GenerateBtnLabel"></div>
+        <div className="GenerateBtnLabel">
+            <p className="infinitysymbol">∞</p>
+            
+        </div>
         </Col>
         <Col size="lg">
         <GenerateBtn onClick= {generateAudio}></GenerateBtn>
