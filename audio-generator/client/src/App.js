@@ -1,4 +1,6 @@
 import React, {useState, useEffect, useRef} from "react";
+import {ADD_SOUND} from "./utils/actions";
+import { useStoreContext } from "./utils/GlobalState";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Main from "./pages/main";
 // import ReactWidget from "./components/ReactWidget/ReactWidget";
@@ -41,6 +43,38 @@ const [formObject, setFormObject] = useState({
     urlThree: "",
     urlFour: "",
 });
+
+const handleAddToDB = (e) =>{
+    e.preventDefault();
+    API.saveSound({
+        title: formObject.titleOne,
+        url: formObject.urlOne
+    })
+    .catch(err => console.log(err));
+}
+
+// const titleRef = useRef();
+// const urlRef = useRef();
+// const [state, dispatch] = useStoreContext();
+// let url = urlRef.current.value;
+// let title = titleRef.current.value;
+// url = formObject.urlOne;
+// title = formObject.titleOne;
+// const handleAddToDB = (e) => {
+//     e.preventDefault();
+//    API.saveSound({
+//        title: title,
+//        url: url
+//    })
+//    .then(result =>{
+//        dispatch({
+//            type: ADD_SOUND,
+//            sound: result.data
+//        });
+//    })
+//    .catch(err => console.log(err));
+
+// };
 
 useEffect(() => {
 
@@ -202,6 +236,7 @@ function handleStateReset(){
         setTimeout(PBIV, (wait+waitII+waitIII));
         setTimeout(handleFade, ((wait+waitII+waitIII+waitIV) - 10));
         setTimeout(PBIV, (wait+waitII+waitIII+waitIV));
+        setTimeout(handleStateReset, (wait+waitII+waitIII+waitIV))
     }
 SeekOne();
 PB();
@@ -256,12 +291,12 @@ setInterval(generateLoop(), (wait+waitII+waitIII+waitIV));
             <div className="titleurlinput"  >
                 <Row>
                 <Col size="lg">
-                <input onChange={handleInputChange} className="titleinput" name="titleOne" value ={formObject.titleOne}></input>
+                <input  onChange={handleInputChange} className="titleinput" name="titleOne" value ={formObject.titleOne}></input>
                 </Col>
                 <Col size="lg">
-                <input onChange={handleInputChange} className="urlinput" name="urlOne" value={formObject.urlOne}></input>
+                <input  onChange={handleInputChange} className="urlinput" name="urlOne" value={formObject.urlOne}></input>
                 </Col>
-              <AddBtn id ="AddOne" onClick={addAudio}></AddBtn>
+              <AddBtn id ="AddOne" onClick={handleAddToDB}></AddBtn>
               </Row>
             </div>
             </Row>
@@ -278,7 +313,7 @@ setInterval(generateLoop(), (wait+waitII+waitIII+waitIV));
                 <Col size="lg">
                 <input onChange={handleInputChange} className="urlinput" name="urlTwo" value ={formObject.urlTwo}></input>
                 </Col>
-              <AddBtn onClick={addAudio}></AddBtn>
+              <AddBtn ></AddBtn>
               </Row>
             </div>
             </Row>
@@ -336,8 +371,6 @@ setInterval(generateLoop(), (wait+waitII+waitIII+waitIV));
      </Row>
 <Row>
         <GenerateBtn onClick= {generateAudio}></GenerateBtn>
-    <GenerateBtn onClick={handleStateReset}></GenerateBtn>
-
 </Row>
 
  </Container>
