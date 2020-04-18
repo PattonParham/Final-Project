@@ -263,7 +263,7 @@ setInterval(generateLoop(), (wait+waitII+waitIII+waitIV));
         <div id = "bodyDiv">
      <div>
          <Row>
-         <Col size="lg" className ="header">
+         <Col size="lg" className="header">
          <Header></Header>
          </Col>
 
@@ -373,20 +373,20 @@ setInterval(generateLoop(), (wait+waitII+waitIII+waitIV));
              </div>
              </Row>
              <Row>
-             <div className="inputSize">
+             <div className="inputSize" >
              <input id = "inFour" onChange={handleInputChange} name = "inputFour" value={formObject.inputFour} className="Input" placeholder="Enter value in ms"></input>
              </div>
              </Row>
              <Row>
-            <Col size="lg">
+            
         <div className="GenerateBtnLabel">
             <p className="infinitysymbol">∞</p>
             
         </div>
-        </Col>
-        <Col size="lg">
+        
+        
         <GenerateBtn onClick= {generateAudio}></GenerateBtn>
-        </Col>
+       
         
             </Row>
          </Col>

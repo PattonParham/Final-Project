@@ -52,66 +52,67 @@ return (
  <div className="Calculator"> 
  <div className="firstRow">
      <Row>
-     <Col size="lg">
+     {/* <Col size="lg"> */}
          <div className="BPMtext">BPM:</div>
 
-         </Col>
-         <Col size="lg">
-         <input id="BPM" className="BPMInput"></input>
-        </Col>
-        <Col size="lg">
-            <div>
+         {/* </Col> */}
+         {/* <Col size="lg"> */}
+         <input id="BPM" className="BPMInput noteLength"></input>
+        {/* </Col> */}
+        {/* <Col size="lg"> */}
+        
+            <div className="noteLength">
                 1/64Note (ms)
                 <p id ="sixtyfourthNote">{sixtyfour}</p>
             </div>
-        </Col>
-        <Col size="lg">
-        <div>
+        {/* </Col> */}
+        {/* <Col size="lg"> */}
+        <div className="noteLength">
                 1/32Note (ms)
                 <p id ="thirtysecondNote">{thirtytwo}</p>
             </div>
-        </Col>
-        <Col size="lg">
-        <div>
+        {/* </Col> */}
+        {/* <Col size="lg"> */}
+        <div className="noteLength">
                 1/16Note (ms)
                 <p id ="sixteenthNote">{sixteen}</p>
             </div>
-        </Col>
+        {/* </Col> */}
         </Row>
         </div>
         <div className="secondRow"> 
         <Row >
-        <Col size="lg">
+        {/* <Col size="lg"> */}
         <div id ="calcPosition">
          <button id = "calcButton" onClick={Calculate}>Calc </button>
         </div>
-        </Col>
-        <Col size="lg">
-        <div>
+        {/* </Col> */}
+        {/* <Col size="lg"> */}
+        <div className="noteLength">
                 1/8Note (ms)
                 <p id = "eighthNote">{eighth}</p>
             </div>
-        </Col>
-        <Col size="lg">
-        <div>
+        {/* </Col> */}
+        {/* <Col size="lg"> */}
+        <div className="noteLength">
                 1/4Note (ms)
                 <p id = "quartNote">{quart}</p>
             </div>
-            </Col>
-        <Col id = "halfNote" size="lg">
-            <div>
+            {/* </Col> */}
+        {/* <Col size="lg"> */}
+            <div className="noteLength">
                 1/2Note (ms)
             <p id = "halfNote">{half}</p>
             </div>
-            </Col>
-            <Col  size="lg">
-            <div>
+            {/* </Col> */}
+            {/* <Col  size="lg"> */}
+            <div className="noteLength">
                 FullNote (ms)
                 <p  id = "fullNote"> {full}</p>
             <div>
             </div>
             </div>
-            </Col>
+            {/* </Col> */}
              
      </Row>
      </div> 
