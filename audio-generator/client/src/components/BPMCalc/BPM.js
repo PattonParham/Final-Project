@@ -23,13 +23,13 @@ function BPMInput(){
         let thirtytwoNote = document.getElementById("thirtysecondNote");
         let sixtyfourNote = document.getElementById("sixtyfourthNote");
 
-        fullNote.value = 60/inputVal;
-        halfNote.value = 30/inputVal;
-        quartNote.value = 15/inputVal;
-        eighthNote.value = 7.5/inputVal;
-        sixteenNote.value = 3.75/inputVal;
-        thirtytwoNote.value = 1.875/inputVal;
-        sixtyfourNote.value = .9375/inputVal;
+        fullNote.value = (60/inputVal)*1000;
+        halfNote.value = (30/inputVal) * 1000;
+        quartNote.value = (15/inputVal) * 1000;
+        eighthNote.value = (7.5/inputVal) * 1000;
+        sixteenNote.value = (3.75/inputVal) * 1000;
+        thirtytwoNote.value = (1.875/inputVal)* 1000;
+        sixtyfourNote.value = (.9375/inputVal) * 1000;
         console.log(fullNote.value);
         let fullNoteVal = fullNote.value;
         let halfNoteVal = halfNote.value;
@@ -49,61 +49,72 @@ function BPMInput(){
         }
 
 return (
- <div > 
+ <div className="Calculator"> 
+ <div className="firstRow">
      <Row>
      <Col size="lg">
          <div className="BPMtext">BPM:</div>
-         <button id = "calcButton" onClick={Calculate}>Calc </button>
+
          </Col>
          <Col size="lg">
          <input id="BPM" className="BPMInput"></input>
         </Col>
         <Col size="lg">
             <div>
-                1/64Note
+                1/64Note (ms)
                 <p id ="sixtyfourthNote">{sixtyfour}</p>
             </div>
         </Col>
         <Col size="lg">
         <div>
-                1/32Note
+                1/32Note (ms)
                 <p id ="thirtysecondNote">{thirtytwo}</p>
             </div>
         </Col>
         <Col size="lg">
         <div>
-                1/16Note
+                1/16Note (ms)
                 <p id ="sixteenthNote">{sixteen}</p>
             </div>
         </Col>
+        </Row>
+        </div>
+        <div className="secondRow"> 
+        <Row >
+        <Col size="lg">
+        <div id ="calcPosition">
+         <button id = "calcButton" onClick={Calculate}>Calc </button>
+        </div>
+        </Col>
         <Col size="lg">
         <div>
-                1/8Note
+                1/8Note (ms)
                 <p id = "eighthNote">{eighth}</p>
             </div>
         </Col>
         <Col size="lg">
         <div>
-                1/4Note
+                1/4Note (ms)
                 <p id = "quartNote">{quart}</p>
             </div>
             </Col>
         <Col id = "halfNote" size="lg">
             <div>
-                1/2Note
+                1/2Note (ms)
             <p id = "halfNote">{half}</p>
             </div>
             </Col>
             <Col  size="lg">
             <div>
-                FullNote
+                FullNote (ms)
                 <p  id = "fullNote"> {full}</p>
             <div>
             </div>
             </div>
             </Col>
+             
      </Row>
-
+     </div> 
 </div>  
 )
 }

@@ -4,4 +4,7 @@
     background-color:red;
     margin-left: 500px;
     margin-top: -30px;
+    border-style: inset;
+    border-color: grey;
+    border-width: 7px;
 }

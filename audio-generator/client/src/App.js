@@ -266,35 +266,33 @@ setInterval(generateLoop(), (wait+waitII+waitIII+waitIV));
          <Col size="lg">
          <Header></Header>
          </Col>
-         <Col size="lg">
-             <Row>
-             
-         <BPMInput></BPMInput>
-             </Row>
 
-         </Col>
          </Row>
 
    
-    
+
     </div>
 
- <Container fluid>
+ <Container fluid className="mainContainer">
      <Row>
+
+     <Row>
+         <div className="playerComponent">
          <Col size="lg">
              <Row>
                 <ReactPlayer ref={playerOne} id ="playerone" className="player" height ="100px"  volume = {fade} playing={playingBool ? true : false} title={formObject.titleOne} url={formObject.urlOne}>
                 </ReactPlayer>
 
             </Row>
+            
             <Row>
             <div className="titleurlinput"  >
                 <Row>
                 <Col size="lg">
-                <input  onChange={handleInputChange} className="titleinput" name="titleOne" value ={formObject.titleOne}></input>
+                <input  onChange={handleInputChange} className="titleinput" name="titleOne" value ={formObject.titleOne} placeholder="Title"></input>
                 </Col>
                 <Col size="lg">
-                <input  onChange={handleInputChange} className="urlinput" name="urlOne" value={formObject.urlOne}></input>
+                <input  onChange={handleInputChange} className="urlinput" name="urlOne" value={formObject.urlOne} placeholder="url"></input>
                 </Col>
               <AddBtn id ="AddOne" onClick={handleAddToDB}></AddBtn>
               </Row>
@@ -308,10 +306,10 @@ setInterval(generateLoop(), (wait+waitII+waitIII+waitIV));
             <div className="titleurlinput">
                 <Row>
                 <Col size="lg">
-                <input onChange={handleInputChange} className="titleinput" name="titleTwo" value ={formObject.titleTwo}></input>
+                <input onChange={handleInputChange} className="titleinput" name="titleTwo" value ={formObject.titleTwo} placeholder="Title"></input>
                 </Col>
                 <Col size="lg">
-                <input onChange={handleInputChange} className="urlinput" name="urlTwo" value ={formObject.urlTwo}></input>
+                <input onChange={handleInputChange} className="urlinput" name="urlTwo" value ={formObject.urlTwo} placeholder="url"></input>
                 </Col>
               <AddBtn ></AddBtn>
               </Row>
@@ -325,10 +323,10 @@ setInterval(generateLoop(), (wait+waitII+waitIII+waitIV));
             <div className="titleurlinput">
                 <Row>
                 <Col size="lg">
-                <input onChange={handleInputChange} className="titleinput" name="titleThree" value ={formObject.titleThree}></input>
+                <input onChange={handleInputChange} className="titleinput" name="titleThree" value ={formObject.titleThree} placeholder="Title"></input>
                 </Col>
                 <Col size="lg">
-                <input onChange={handleInputChange} className="urlinput" name="urlThree" value ={formObject.urlThree}></input>
+                <input onChange={handleInputChange} className="urlinput" name="urlThree" value ={formObject.urlThree} placeholder="url"></input>
                 </Col>
               <AddBtn></AddBtn>
               </Row>
@@ -342,37 +340,55 @@ setInterval(generateLoop(), (wait+waitII+waitIII+waitIV));
             <div className="titleurlinput">
                 <Row>
                 <Col size="lg">
-                <input onChange={handleInputChange} className="titleinput" name="titleFour" value ={formObject.titleFour}></input>
+                <input onChange={handleInputChange} className="titleinput" name="titleFour" value ={formObject.titleFour} placeholder="Title"></input>
                 </Col>
                 <Col size="lg">
-                <input onChange={handleInputChange} className="urlinput" name="urlFour" value={formObject.urlFour}></input>
+                <input onChange={handleInputChange} className="urlinput" name="urlFour" value={formObject.urlFour} placeholder="url"></input>
                 </Col>
               <AddBtn></AddBtn>
               </Row>
             </div>
             </Row>
-         </Col>
-         <Col size ="sm">
-             <Row>
-             <input id = "inOne" onChange={handleInputChange} name= "inputOne" value={formObject.inputOne} className="Input"></input>
-             </Row>
-             <Row>
-             <input id = "inTwo" onChange={handleInputChange} name= "inputTwo" value={formObject.inputTwo} className="Input"></input>
-             </Row>
-             <Row>
-             <input id = "inThree" onChange={handleInputChange} name= "inputThree" value={formObject.inputThree} className="Input"></input>
-             </Row>
-             <Row>
-             <input id = "inFour" onChange={handleInputChange} name = "inputFour" value={formObject.inputFour} className="Input"></input>
-             </Row>
-         </Col>
-
-         
+         </Col>  
+         </div>
      </Row>
-<Row>
+     <Col size="lg">
+             <Row>
+             
+         <BPMInput></BPMInput>
+             </Row>
+             <Row>
+                 <div className="inputSize">
+             <input id = "inOne" onChange={handleInputChange} name= "inputOne" value={formObject.inputOne} className="Input" placeholder="Enter value in ms"></input>
+             </div>
+             </Row>
+             <Row>
+             <div className="inputSize">
+             <input id = "inTwo" onChange={handleInputChange} name= "inputTwo" value={formObject.inputTwo} className="Input" placeholder="Enter value in ms"></input>
+             </div>
+             </Row>
+             <Row>
+             <div className="inputSize">
+             <input id = "inThree" onChange={handleInputChange} name= "inputThree" value={formObject.inputThree} className="Input" placeholder="Enter value in ms"></input>
+             </div>
+             </Row>
+             <Row>
+             <div className="inputSize">
+             <input id = "inFour" onChange={handleInputChange} name = "inputFour" value={formObject.inputFour} className="Input" placeholder="Enter value in ms"></input>
+             </div>
+             </Row>
+             <Row>
+            <Col size="lg">
+        <div className="GenerateBtnLabel"></div>
+        </Col>
+        <Col size="lg">
         <GenerateBtn onClick= {generateAudio}></GenerateBtn>
-</Row>
+        </Col>
+        
+            </Row>
+         </Col>
 
+</Row>
  </Container>
 
         </div>

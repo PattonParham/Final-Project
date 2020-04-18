@@ -4,7 +4,7 @@ import "./AddButton.css";
 function AddBtn(props){
     return(
         <button className = "add-btn" {...props}>
-            Add Audio
+            Add To DB
         </button>
     );
 }
